@@ -14,3 +14,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionLoginController::class, 'destroy'])->name('logout');
     Route::get('/dashboard', fn () => redirect()->route('login'))->name('dashboard'); 
 });
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [SessionLoginController::class, 'destroy'])->name('logout');
+    Route::livewire('/dashboard', 'pages::ticket-dashboard')->name('dashboard');
+});
